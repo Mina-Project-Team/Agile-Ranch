@@ -1,0 +1,18 @@
+[[mechanika-gry]]
+= Mechanika gry (skrót)
+
+== 1. Rzut kośćmi i rozmnażanie
+Rzut 2K12. Suma ≥ 12 → za każdą pełną parę zwierząt danego gatunku gracz dostaje +1 sztukę.
+Wynik < 12 → brak rozmnażania.
+
+== 2. Wymiana rynkowa
+Kursy: 6 królików → 1 owca; 2 owce → 1 świnia; 3 świnie → 1 krowa; 2 krowy → 1 koń.
+Wymiana natychmiastowa, atomowa, bez limitu na turę. Działa również w drugą stronę.
+
+== 3. Drapieżniki i psy
+- *Lis* (1/12 na kości): zabiera wszystkie króliki, chyba że gracz ma **małego psa**.
+- *Wilk* (1/12): zabiera wszystkie zwierzęta z wyjątkiem koni i **dużego psa**.
+Oba efekty rozpatrywane są po rzucie, przed rozmnażaniem.
+
+== 4. [Nazwa nowej mechaniki]
+[Tutaj wstaw opis: cel, warunki uruchomienia, efekt.]

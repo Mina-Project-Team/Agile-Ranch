@@ -1,0 +1,64 @@
+[[wymagania]]
+= Wymagania i historyjki użytkownika
+= Template kopiujecie, i według niego wypełniacie. Są przykłady teraz:
+
+== Epik: Mechanika rzutów i rozwój stada
+
+[cols="1,2,2,2", options="header"]
+|===
+|ID |User Story |Kryteria akceptacji |Status
+
+|US-01
+|Jako **gracz** chcę *rzucać dwiema 12-ściennymi kostkami*, aby *móc rozmnażać zwierzęta*.
+|
+* Wynik losowany z zakresu 2–24 (suma dwóch kości)
+* Każdy wynik 12+ rozmnaża 1 parę zwierząt w stadzie gracza
+* Mechanika testowana przez funkcję `roll_dice()`
+| Backlog
+
+|US-02
+|Jako **gracz** chcę *wymieniać się na rynku*, aby *optymalizować skład stada*.
+|
+* Dostępny kurs: 6 królików → 1 owca
+* System nie pozwala na wymianę, gdy gracz nie ma wystarczającej liczby zwierząt
+* Testy jednostkowe sprawdzają logikę wymiany
+| Backlog
+|===
+
+== Epik: Drapieżniki i obrona
+
+[cols="1,2,2,2", options="header"]
+|===
+|ID |User Story |Kryteria akceptacji |Status
+
+|US-03
+|Jako **system** chcę *sprawdzać obecność drapieżników po rzucie*, aby *wprowadzić ryzyko straty stada*.
+|
+* Jeśli wypadnie lis – giną wszystkie króliki (chyba że gracz posiada małego psa)
+* Jeśli wypadnie wilk – giną wszystkie zwierzęta oprócz konia i małego psa
+* Testy symulują scenariusze z psem i bez
+| Backlog
+|===
+
+////
+SZABLON USER STORY – skopiuj i wypełnij, wstawiając w odpowiednie miejsce powyższej tabeli.
+////
+
+.Kopiowalny wiersz dla nowej User Story
+[cols="1,2,2,2", options="header"]
+|===
+|ID |User Story |Kryteria akceptacji |Status
+|US-XX
+|Jako **[rola]** chcę **[akcja]**, aby **[cel biznesowy]**.
+|
+* [Kryterium 1]
+* [Kryterium 2]
+* [Kryterium 3]
+| Backlog
+|===
+
+.Definition of Done (DoD) – uniwersalne
+* Kryteria akceptacji spełnione
+* Dokumentacja (.adoc) zaktualizowana
+* Testy (jeśli dotyczy) przechodzą
+* Wdrożone na `main` i zweryfikowane przez Flow Mastera
