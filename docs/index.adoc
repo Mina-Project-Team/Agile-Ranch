@@ -1,0 +1,88 @@
+= Digitalizacja gry planszowej "Farmer"
+Jan Kowalski <kontakt@example.com>
+:doctype: book
+:toc: left
+:toclevels: 2
+:numbered:
+:icons: font
+:revnumber: 0.1
+:revdate: 2026-05-13
+
+:sectnums:
+
+:source-highlighter: rouge
+
+ifdef::backend-html5[]
+:stylesheet: theme.css
+endif::[]
+
+[%header]
+=====
+Oficjalna dokumentacja projektu — cyfryzacja gry "Farmer"
+=====
+
+= Wprowadzenie
+
+W tej sekcji opisano cele projektu oraz zarys podejścia do cyfryzacji gry planszowej "Farmer".
+
+== Cel projektu
+
+Digitalizacja gry "Farmer" — celem jest przeniesienie kluczowych mechanik gry do formy cyfrowej, zapewnienie stabilnego środowiska deweloperskiego oraz produkcyjnej jakości dokumentacji w formacie AsciiDoc.
+
+== Zakres
+
+- Zaimplementowanie logiki gry (rzuty kośćmi, rozwój stada, drapieżniki, wymiana).
+- Przygotowanie infrastruktury: repozytorium, CI/CD, hosting dokumentacji.
+- Przygotowanie zasobów (grafiki, ikony) w oddzielnym module/repo submodule.
+
+== Odbiorcy dokumentacji
+
+- Zespół deweloperski
+- Analitycy i designerzy gry
+- Technical writers i DevOps
+
+
+= Architektura i technologia
+
+Poniżej przedstawiono proponowaną architekturę systemu i kluczowe decyzje technologiczne.
+
+== Przegląd
+
+System ma być modułowy i łatwy do testowania. Zalecana warstwa aplikacji:
+
+- Frontend: responsywna aplikacja (Web) wykorzystująca framework SPA (np. React / Vue).
+- Backend: lekki serwis REST/GraphQL odpowiedzialny za logikę gry i persistent storage.
+- Baza danych: lekka baza relacyjna lub NoSQL w zależności od wymagań skalowalności.
+- CI/CD: GitHub Actions — build, test, generowanie dokumentacji i publikacja na GitHub Pages.
+
+== Aspekty implementacyjne
+
+- Logika gry powinna być oddzielona jako biblioteka (np. `game-engine`) tak, aby można było jej użyć w backendzie i testach.
+- Interfejsy API muszą być wersjonowane.
+- Zasoby graficzne i assety — wydzielone jako submodule Git, aby umożliwić niezależne zarządzanie.
+
+== Wymagania niefunkcjonalne
+
+- Automatyczne testy jednostkowe i integracyjne.
+- Dokumentacja generowana z AsciiDoc i hostowana automatycznie.
+- Monitorowanie i alerty integrujące się z MS Teams.
+
+== Mechanika gry
+include::mechanics.adoc[]
+
+== Wymagania funkcjonalne i niefunkcjonalne
+include::requirements.adoc[]
+
+== Implementacja techniczna
+include::technical.adoc[]
+
+== Słownik terminów
+include::glossary.adoc[]
+
+== Załączniki
+* Zasoby graficzne i moduły (git submodule)
+* Przykładowe testy jednostkowe i integracyjne
+
+--
+Dokument wygenerowany automatycznie. Kontakt: Jan Kowalski
+
