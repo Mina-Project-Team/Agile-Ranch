@@ -1,0 +1,94 @@
+name: User Story
+description: Szablon do tworzenia historyjek użytkownika dla projektu Agile Ranch
+title: "US-XX: "
+labels: ["type: user-story", "status: backlog"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## User Story
+
+        Użyj tego szablonu do opisania jednej historyjki użytkownika.
+        Każda User Story powinna być zgodna z formatem:
+
+        **Jako [rola] chcę [akcja], aby [cel].**
+
+  - type: input
+    id: user-story-id
+    attributes:
+      label: ID User Story
+      description: Podaj identyfikator historyjki, np. US-01, US-02, US-14.
+      placeholder: "US-XX"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: epic
+    attributes:
+      label: Epik
+      description: Wybierz epik, do którego należy ta historyjka.
+      options:
+        - Mechanika rzutów i rozwój stada
+        - Wymiana rynkowa
+        - Drapieżniki i obrona
+        - Warunki zwycięstwa i przebieg rozgrywki
+        - Dokumentacja i setup procesu
+    validations:
+      required: true
+
+  - type: textarea
+    id: user-story
+    attributes:
+      label: Treść User Story
+      description: Opisz historyjkę w formacie Agile.
+      placeholder: "Jako gracz chcę rzucić dwiema 12-ściennymi kostkami, aby rozpocząć swoją turę i poznać wynik losowania."
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Kryteria akceptacji
+      description: Wypisz warunki, które muszą zostać spełnione, żeby historyjka została uznana za ukończoną.
+      value: |
+        - [ ] 
+        - [ ] 
+        - [ ] 
+    validations:
+      required: true
+
+  - type: textarea
+    id: definition-of-done
+    attributes:
+      label: Definition of Done
+      description: Zaznacz, co musi być spełnione przed zamknięciem Issue.
+      value: |
+        - [ ] User Story została opisana w `docs/requirements.adoc`.
+        - [ ] Kryteria akceptacji są jednoznaczne i testowalne.
+        - [ ] Issue ma przypisany odpowiedni epik / label.
+        - [ ] Issue znajduje się na tablicy GitHub Projects.
+        - [ ] Status Issue jest zgodny z tablicą Kanban.
+        - [ ] Treść została sprawdzona przez inną osobę z zespołu.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priorytet
+      description: Określ ważność historyjki w backlogu.
+      options:
+        - High
+        - Medium
+        - Low
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Dodatkowe uwagi
+      description: Miejsce na decyzje analityczne, pytania do zespołu albo linki do dokumentacji.
+      placeholder: "Np. wymaga doprecyzowania zasad działania dużego psa przy ataku wilka."
+    validations:
+      required: false
