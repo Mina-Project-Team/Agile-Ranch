@@ -9,35 +9,184 @@
 |ID |User Story |Kryteria akceptacji |Status
 
 |US-01
-|Jako **gracz** chcę *rzucać dwiema 12-ściennymi kostkami*, aby *móc rozmnażać zwierzęta*.
-|
-* Wynik losowany z zakresu 2–24 (suma dwóch kości)
-* Każdy wynik 12+ rozmnaża 1 parę zwierząt w stadzie gracza
-* Mechanika testowana przez funkcję `roll_dice()`
-| Backlog
+|Jako *gracz* chcę *rzucić dwiema 12-ściennymi kostkami ze zwierzętami*, aby *rozpocząć swoją turę i poznać wynik losowania*.
+a|
+* System losuje wynik dla dwóch niezależnych 12-ściennych kostek.
+* Każda kostka zwraca symbol zwierzęcia albo drapieżnika zgodnie z konfiguracją gry.
+* Wynik obu kostek jest widoczny dla gracza.
+* Wynik rzutu może zostać przekazany do mechaniki rozmnażania stada i obsługi drapieżników.
+|Backlog
 
 |US-02
-|Jako **gracz** chcę *wymieniać się na rynku*, aby *optymalizować skład stada*.
-|
-* Dostępny kurs: 6 królików → 1 owca
-* System nie pozwala na wymianę, gdy gracz nie ma wystarczającej liczby zwierząt
-* Testy jednostkowe sprawdzają logikę wymiany
+|Jako *gracz* chcę *otrzymywać nowo narodzone zwierzęta na podstawie wyniku rzutu i aktualnego stada*, aby *widzieć wzrost liczby posiadanych zwierząt*.
+a|
+* System sumuje zwierzęta danego gatunku wyrzucone na kostkach z liczbą zwierząt tego gatunku w stadzie gracza.
+* Za każdą pełną parę gracz otrzymuje jedno nowe zwierzę danego gatunku.
+* Zwierzęta są dodawane do stada tylko wtedy, gdy suma zwierząt z kostek i stada daje minimum jedną pełną parę.
+* Stan stada zostaje zaktualizowany po obliczeniu przyrostu.
+* Testy jednostkowe weryfikują algorytm przyrostu stada dla różnych stanów początkowych.
+|Backlog
+
+|US-03
+|Jako *gracz* chcę *widzieć podsumowanie zmian w stadzie po rzucie*, aby *wiedzieć, które zwierzęta zostały dodane lub utracone*.
+a|
+* Po turze system pokazuje listę zmian w stadzie.
+* Gracz widzi stan stada przed i po rozpatrzeniu rzutu.
+* Jeżeli nie nastąpiła żadna zmiana, system pokazuje odpowiedni komunikat.
+|Backlog
+
+|US-04
+|Jako **system** chcę *losować wyniki* z dwóch 12-ściennych kostek o różnych rozkładach zwierząt, aby *zapewnić losowość*.
+a|
+* Zdefiniowano dwa oddzielne zestawy ścianek dla Kostki 1 i Kostki 2
+* Funkcja rzutu zwraca wylosowane zwierzęta z obu kostek niezależnie
+* Logika uwzględnia sytuacje, w których na ściankach znajdują się drapieżniki (lis/wilk)
 | Backlog
+
+|US-05
+|Jako *gracz* chcę *mieć zapis aktualnego stanu mojego stada*, aby *system mógł poprawnie obliczać kolejne tury*.
+a|
+* System przechowuje liczbę królików, owiec, świń, krów, koni oraz psów.
+* Stan stada jest aktualizowany po rzucie, wymianie i ataku drapieżnika.
+* System nie dopuszcza ujemnej liczby zwierząt.
+|Backlog
+|===
+
+== Epik: Wymiana rynkowa
+
+[cols="1,3,4,1", options="header"]
+|===
+|ID |User Story |Kryteria akceptacji |Status
+
+|US-06
+|Jako *gracz* chcę *wymieniać zwierzęta według stałego cennika*, aby *móc strategicznie rozwijać gospodarstwo*.
+a|
+* System obsługuje kurs: 6 królików = 1 owca.
+* System obsługuje kurs: 2 owce = 1 świnia.
+* System obsługuje kurs: 3 świnie = 1 krowa.
+* System obsługuje kurs: 2 krowy = 1 koń.
+|Backlog
+
+|US-07
+|Jako *gracz* chcę *wymieniać zwierzęta w obie strony*, aby *móc elastycznie reagować na sytuację w grze*.
+a|
+* System pozwala wymienić zwierzęta z niższego poziomu na wyższy.
+* System pozwala wymienić zwierzęta z wyższego poziomu na niższy.
+* Po wymianie stan stada jest poprawnie przeliczony.
+|Backlog
+
+|US-08
+|Jako *system* chcę *sprawdzać, czy gracz ma wystarczającą liczbę zwierząt do wymiany*, aby *nie dopuścić do niepoprawnego stanu gry*.
+a|
+* Wymiana jest blokowana, jeżeli gracz nie ma wymaganej liczby zwierząt.
+* System pokazuje komunikat o braku wystarczających zasobów.
+* Nieudana wymiana nie zmienia stanu stada.
+|Backlog
+
+|US-09
+|Jako *gracz* chcę *zobaczyć podgląd wymiany przed jej zatwierdzeniem*, aby *uniknąć przypadkowej decyzji*.
+a|
+* System pokazuje, jakie zwierzęta zostaną zabrane.
+* System pokazuje, jakie zwierzęta zostaną dodane.
+* Gracz może zatwierdzić albo anulować wymianę.
+|Backlog
+
+|US-10
+|Jako *system* chcę *wykonywać wymianę atomowo*, aby *nie powstał częściowo zaktualizowany stan stada*.
+a|
+* Wymiana kończy się pełnym sukcesem albo pełnym anulowaniem.
+* W przypadku błędu stan stada pozostaje bez zmian.
+* Testy sprawdzają poprawną i niepoprawną wymianę.
+|Backlog
 |===
 
 == Epik: Drapieżniki i obrona
 
-[cols="1,2,2,2", options="header"]
+[cols="1,3,4,1", options="header"]
 |===
 |ID |User Story |Kryteria akceptacji |Status
 
-|US-03
-|Jako **system** chcę *sprawdzać obecność drapieżników po rzucie*, aby *wprowadzić ryzyko straty stada*.
-|
-* Jeśli wypadnie lis – giną wszystkie króliki (chyba że gracz posiada małego psa)
-* Jeśli wypadnie wilk – giną wszystkie zwierzęta oprócz konia i małego psa
-* Testy symulują scenariusze z psem i bez
-| Backlog
+|US-11
+|Jako *gracz* chcę *żeby lis atakował moje króliki*, aby *gra zawierała element ryzyka*.
+a|
+* Jeżeli wypadnie lis, system rozpatruje atak na króliki.
+* Jeżeli gracz nie posiada odpowiedniej obrony, traci króliki zgodnie z zasadami gry.
+* Po ataku system aktualizuje stan stada.
+|Backlog
+
+|US-12
+|Jako *gracz* chcę *używać małego psa do obrony przed lisem*, aby *chronić króliki przed stratą*.
+a|
+* Jeżeli gracz ma małego psa i wypadnie lis, króliki nie zostają utracone.
+* Po obronie mały pies zostaje usunięty ze stada.
+* System pokazuje komunikat o użyciu małego psa.
+|Backlog
+
+|US-13
+|Jako *gracz* chcę *żeby wilk atakował moje stado*, aby *większe zwierzęta również były narażone na ryzyko*.
+a|
+* Jeżeli wypadnie wilk, system rozpatruje atak na stado.
+* Koń nie zostaje utracony podczas ataku wilka.
+* Pozostałe zwierzęta są usuwane zgodnie z przyjętymi zasadami projektu.
+|Backlog
+
+|US-14
+|Jako *gracz* chcę *użyć dużego psa do obrony przed wilkiem*, aby *nie stracić zwierząt podczas ataku drapieżnika*.
+a|
+* System wykrywa atak wilka po rzucie kośćmi.
+* Jeżeli gracz posiada dużego psa, atak wilka zostaje zablokowany.
+* Po obronie duży pies zostaje usunięty ze stada.
+* Jeżeli gracz nie posiada dużego psa, system rozpatruje atak wilka zgodnie z zasadami gry.
+|Backlog
+
+|US-15
+|Jako *system* chcę *rozpatrywać sytuację, gdy w jednej turze pojawi się więcej niż jeden efekt specjalny*, aby *uniknąć niejednoznaczności zasad*.
+a|
+* System posiada zdefiniowaną kolejność rozpatrywania efektów.
+* Atak lisa i wilka może zostać obsłużony w jednej turze.
+* Wynik końcowy stada jest jednoznaczny i możliwy do przetestowania.
+|Backlog
+|===
+
+
+== Epik: Warunki zwycięstwa i przebieg rozgrywki
+
+[cols="1,3,4,1", options="header"]
+|===
+|ID |User Story |Kryteria akceptacji |Status
+
+|US-16
+|Jako *gracz* chcę *rozpocząć nową grę z pustym lub domyślnym stadem*, aby *móc zacząć rozgrywkę od ustalonego stanu początkowego*.
+a|
+* System tworzy nową rozgrywkę.
+* Każdy gracz otrzymuje początkowy stan stada zgodny z konfiguracją gry.
+* Stan początkowy jest widoczny dla gracza.
+|Backlog
+
+|US-17
+|Jako *gracz* chcę *wykonywać swoją turę w określonej kolejności*, aby *rozgrywka była zrozumiała i zgodna z zasadami*.
+a|
+* Tura składa się z rzutu kośćmi.
+* Następnie system rozpatruje drapieżniki.
+* Następnie system rozpatruje rozmnażanie.
+* Gracz może wykonać wymianę zgodnie z zasadami projektu.
+|Backlog
+
+|US-18
+|Jako *gracz* chcę *zostać poinformowany o spełnieniu warunku zwycięstwa*, aby *wiedzieć, kiedy gra się kończy*.
+a|
+* System sprawdza stan stada po każdej turze.
+* System wykrywa, czy gracz posiada wymagany zestaw zwierząt.
+* Po spełnieniu warunku zwycięstwa system pokazuje komunikat końcowy.
+|Backlog
+
+|US-19
+|Jako *gracz* chcę *widzieć historię ostatnich akcji*, aby *móc prześledzić przebieg rozgrywki*.
+a|
+* System zapisuje ostatni rzut kośćmi.
+* System zapisuje wykonane wymiany.
+* System zapisuje ataki drapieżników i użycie psów.
+|Backlog
 |===
 
 ////
