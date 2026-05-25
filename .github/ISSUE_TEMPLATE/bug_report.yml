@@ -1,0 +1,103 @@
+name: Bug Report
+description: Szablon do zgłaszania błędów w automatyzacji, konfiguracji lub dokumentacji projektu
+title: "BUG-XX: "
+labels: ["type: bug", "status: to-do"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Zgłoszenie Błędu (Bug Report)
+        
+        Użyj tego szablonu, aby zgłosić problem techniczny dotyczący procesów CI/CD, dokumentacji lub webhooków.
+
+  - type: input
+    id: bug-id
+    attributes:
+      label: ID Błędu
+      description: Podaj identyfikator błędu, np. BUG-01, BUG-02.
+      placeholder: "BUG-XX"
+    validations:
+      required: true
+
+  - type: input
+    id: bug-title
+    attributes:
+      label: Krótki opis problemu
+      description: Zwięźle opisz, co nie działa (pamiętaj, aby zaktualizować tytuł Issue na górze strony!).
+      placeholder: "Np. GitHub Pages nie buduje się po dodaniu nowej tabeli w AsciiDoc"
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Kroki do reprodukcji
+      description: Jak krok po kroku wywołać ten błąd?
+      placeholder: |
+        1. Przejdź do pliku...
+        2. Dokonaj zmiany...
+        3. Uruchom akcję / sprawdź tablicę...
+        4. Zobacz błąd...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Oczekiwane zachowanie
+      description: Co powinno się stać, gdyby wszystko działało poprawnie?
+      placeholder: "Akcja budowania dokumentacji powinna zakończyć się na zielono (Success)."
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logi z błędem i aktualne zachowanie
+      description: Wklej tutaj logi z GitHub Actions, komunikaty błędu lub dodaj zrzuty ekranu.
+      value: |
+        ```text
+        Wklej logi z błędem tutaj
+        ```
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Obszar błędu
+      description: Czego dotyczy ten problem?
+      options:
+        - GitHub Actions (CI/CD)
+        - Dokumentacja (AsciiDoc / GitHub Pages)
+        - Konfiguracja repozytorium / Webhooki Teams
+        - Tablica Kanban / GitHub Projects
+        - Inne
+    validations:
+      required: true
+
+  - type: textarea
+    id: definition-of-done
+    attributes:
+      label: Definition of Done (DoD) dla Bugfixa
+      description: Zaznacz, co musi być spełnione przed zamknięciem tego Issue.
+      value: |
+        - [ ] Przyczyna błędu została naprawiona na dedykowanym branchu (np. `bugfix/...`).
+        - [ ] Zmiany pomyślnie przechodzą proces weryfikacji.
+        - [ ] Pull Request został utworzony i zatwierdzony przez inną osobę.
+        - [ ] Zaktualizowano ewentualną dokumentację procesu, jeśli błąd wynikał z błędnego opisu.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priorytet
+      description: Określ, jak pilna jest naprawa tego błędu dla działania zespołu.
+      options:
+        - Critical
+        - High
+        - Medium
+        - Low
+    validations:
+      required: true
