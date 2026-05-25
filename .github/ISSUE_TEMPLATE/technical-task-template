@@ -1,0 +1,100 @@
+name: "Technical Task"
+description: "Zadanie techniczne związane z setupem, CI/CD lub dokumentacją"
+title: "[TASK] "
+labels:
+  - technical-task
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Zadanie techniczne
+        Opisz zadanie zgodnie z metodyką Agile/Kanban.
+
+  - type: input
+    id: goal
+    attributes:
+      label: Cel zadania
+      description: Co ma zostać osiągnięte?
+      placeholder: "Skonfigurowanie automatycznego deployu GitHub Pages"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Opis techniczny
+      description: Szczegółowy opis implementacji/setupu
+      placeholder: |
+        - Utworzenie workflow GitHub Actions
+        - Build dokumentacji AsciiDoc
+        - Deploy na GitHub Pages
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Kryteria Akceptacji (AC)
+      description: Kiedy zadanie uznajemy za ukończone?
+      placeholder: |
+        - Workflow uruchamia się automatycznie
+        - Dokumentacja publikuje się poprawnie
+        - Build kończy się statusem success
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Kategoria
+      options:
+        - CI/CD
+        - Documentation
+        - GitHub Projects
+        - GitHub Pages
+        - DevOps
+        - Repository Structure
+        - Integration
+        - Automation
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priorytet
+      options:
+        - Low
+        - Medium
+        - High
+        - Critical
+    validations:
+      required: true
+
+  - type: input
+    id: dependencies
+    attributes:
+      label: Zależności
+      description: Linki do innych Issues/PR
+      placeholder: "#12, #18"
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Dodatkowe informacje
+      description: Notatki techniczne, linki, sugestie
+
+  - type: checkboxes
+    id: definition_of_done
+    attributes:
+      label: Definition of Done
+      options:
+        - label: Kod/config został dodany do repozytorium
+          required: true
+        - label: Dokumentacja została zaktualizowana
+          required: true
+        - label: Workflow/testy przechodzą poprawnie
+          required: true
+        - label: Issue został powiązany z GitHub Project
+          required: true
