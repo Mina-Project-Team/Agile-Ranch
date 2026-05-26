@@ -4,7 +4,7 @@ from src.engine import FarmerEngine
 def test_us06_exchange_logic():
     engine = FarmerEngine()
     engine.herd["królik"] = 12
-    # Próba wymiany 12 królików na 2 owce (krok po kroku)
+    # Próba pojedynczej wymiany 12 królików na 1 owcę
     assert engine.exchange("królik", "owca") is True
     assert engine.herd["królik"] == 6
     assert engine.herd["owca"] == 1
