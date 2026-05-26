@@ -22,12 +22,8 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -52,24 +48,31 @@ jobs:
       #   uses: actions/setup-python@v5
       #   with:
       #     python-version: '3.11'
-
       # - name: Install test dependencies
       #   run: |
       #     python -m pip install --upgrade pip
       #     pip install pytest
-
       # - name: Run minimal test suite
       #   run: pytest tests/ --tb=short
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-        with:
-          enablement: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: 'build/html'
+
+  deploy:
+    needs: build
+    # Only run this job if the workflow was triggered by the main branch
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        with:
+          enablement: true
 
       - name: Deploy to GitHub Pages
         id: deployment
