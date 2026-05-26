@@ -27,6 +27,6 @@ def test_us14_wolf_attack_horse_survives():
     engine = FarmerEngine()
     engine.herd["owca"] = 5
     engine.herd["koń"] = 1
-    engine.process_turn("wilk", "królik")
+    engine.process_turn("królik", "wilk")
     assert engine.herd["owca"] == 0 # Owce zjedzone
     assert engine.herd["koń"] == 1 # Koń przeżył!
