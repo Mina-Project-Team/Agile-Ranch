@@ -36,16 +36,10 @@ class FarmerEngine:
                     self.herd[animal] = 0
 
         # US-02: Rozmnażanie (tylko jeśli kostka nie wyrzuciła drapieżnika)
-        for die_result in [d1, d2]:
+        herd_before_reproduction = self.herd.copy()
+        for die_result in set([d1, d2]):
             if die_result not in ["lis", "wilk"]:
-                total = self.herd[die_result] + 1 # +1 z kostki
-                if die_result == d1 and die_result == d2:
-                    total = self.herd[die_result] + 2 # specjalny przypadek: dwie takie same na kostkach
-                
-                # Za każdą parę dostajemy 1 nowe
-                new_animals = (self.herd[die_result] + (1 if die_result in [d1, d2] else 0)) // 2 # uproszczone
-                # Poniżej prostsza logika par:
-                pairs = (self.herd[die_result] + [d1, d2].count(die_result)) // 2
+                pairs = (herd_before_reproduction[die_result] + [d1, d2].count(die_result)) // 2
                 self.herd[die_result] += pairs
 
     def exchange(self, give, take):
