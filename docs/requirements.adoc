@@ -1,9 +1,7 @@
 [[requirements]]
-= Requirements and User Stories
-
 Use this template as the base and fill it in accordingly. Examples are provided below:
 
-== Epic: Dice Mechanics and Herd Growth
+=== Epic: Dice Mechanics and Herd Growth
 
 [cols="1,2,2,2", options="header"]
 |===
@@ -53,7 +51,7 @@ a|
 |Backlog
 |===
 
-== Epic: Market Exchange
+=== Epic: Market Exchange
 
 [cols="1,3,4,1", options="header"]
 |===
@@ -101,7 +99,7 @@ a|
 |Backlog
 |===
 
-== Epic: Predators and Defense
+=== Epic: Predators and Defense
 
 [cols="1,3,4,1", options="header"]
 |===
@@ -149,8 +147,7 @@ a|
 |Backlog
 |===
 
-
-== Epic: Victory Conditions and Game Flow
+=== Epic: Victory Conditions and Game Flow
 
 [cols="1,3,4,1", options="header"]
 |===
