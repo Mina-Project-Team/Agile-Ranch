@@ -17,7 +17,6 @@ cd Agile-Ranch
 ----
 python -m pytest tests
 ----
-----
 
 == Directory Structure (selected)
 
