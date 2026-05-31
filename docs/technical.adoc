@@ -3,8 +3,7 @@
 == Prerequisites
 
 - Git 2.30+
-- Node.js 16+ (if the frontend uses web tooling)
-- Java 11+ / Python 3.10+ (depending on the backend stack)
+- Python 3.10+
 
 == Quick Start (Developer)
 
