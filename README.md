@@ -10,15 +10,13 @@ Quick Links
 
 Getting started (quick)
 
-Prerequisites: Git, Node.js (16+), and your preferred runtime for backend components (Java 11+ or Python 3.10+ as applicable).
+Prerequisites: Git and Python 3.10+.
 
-Clone and run (example for the Node-based client):
+Clone and run the test suite:
 
-```bash
-git clone https://github.com/Mina-Project-Team/Agile-Ranch.git
-cd Agile-Ranch
-npm install
-npm run dev
+    git clone https://github.com/Mina-Project-Team/Agile-Ranch.git
+    cd Agile-Ranch
+    python -m pytest tests
 ```
 
 Contributing
