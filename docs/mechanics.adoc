@@ -10,6 +10,6 @@ The exchange is immediate, atomic, and unlimited per turn. The current engine su
 
 == Predators and Dogs
 - *Fox* (1/12 on the die): takes all rabbits unless the player has a **small dog**.
-- *Wolf* (1/12): takes all animals except horses and the **big dog**.
+- *Wolf* (1/12): if the player has a **big dog**, the dog blocks the attack and is removed; otherwise the wolf takes all rabbits, sheep, pigs, and cows while horses remain.
 Both effects are resolved after the roll and before breeding.
 
