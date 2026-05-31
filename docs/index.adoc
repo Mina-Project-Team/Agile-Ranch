@@ -93,6 +93,3 @@ include::glossary.adoc[]
 * Sample unit and integration tests
 * Project links: link:https://mina-project-team.github.io/Agile-Ranch/[GitHub Pages] | link:https://github.com/orgs/Mina-Project-Team/projects/1[Kanban Board] | link:https://teams.microsoft.com/l/channel/19%3AKWHQbyCpT27fM8s_ej_Z-5twt7G8luly-cAw2KVX2Ho1%40thread.tacv2/General?groupId=6e093c46-85f3-4e14-90df-da83fa87486a&tenantId=80b1033f-21e0-4a82-bbc0-f05fdccd3bc8[Microsoft Teams]
 
---
-
-
