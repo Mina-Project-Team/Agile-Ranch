@@ -1,0 +1,10 @@
+= Glossary
+
+== Terms
+
+WIP:: Work In Progress - the number of concurrent tasks allowed in the workflow.
+AC:: Acceptance Criteria - conditions that must be met for a story or task to be considered complete.
+DoD:: Definition of Done - the completion checklist applied to work items.
+Submodule:: A Git repository embedded inside another repository as a dependency.
+Kanban:: A flow-based work management method with explicit limits on work in progress.
+GitHub Pages:: A static hosting service for project documentation and web content.

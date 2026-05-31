@@ -1,28 +1,25 @@
-= Środowisko deweloperskie — uruchomienie i konfiguracja
+= Development Environment - Setup and Run
 
-== Wymagania wstępne
+== Prerequisites
 
 - Git 2.30+
-- Node.js 16+ (jeśli frontend używa narzędzi webowych)
-- Java 11+ / Python 3.10+ (w zależności od stacka backend)
+- Python 3.10+
 
-== Szybkie uruchomienie (developer)
+== Quick Start (Developer)
 
-.Klonowanie repozytorium
+.Clone the repository
 ----
 git clone https://github.com/Mina-Project-Team/Agile-Ranch.git
 cd Agile-Ranch
 ----
 
-.Uruchomienie środowiska lokalnego (przykład dla Node)
+.Run the test suite
 ----
-npm install
-npm run dev
+python -m pytest tests
 ----
 
-== Struktura katalogów (wybrane)
+== Directory Structure (selected)
 
-- `docs/` — dokumentacja AsciiDoc
-- `game-engine/` — logika gry (biblioteka)
-- `frontend/` — aplikacja kliencka
-- `backend/` — serwisy API
+- `docs/` - AsciiDoc documentation
+- `src/` - Python game engine implementation
+- `tests/` - pytest-based unit tests

@@ -1,18 +1,15 @@
-[[mechanika-gry]]
-= Mechanika gry (skrót)
+[[game-mechanics]]
+= Game Mechanics (Summary)
 
-==  Rzut kośćmi i rozmnażanie
-Rzut 2K12. Suma ≥ 12 → za każdą pełną parę zwierząt danego gatunku gracz dostaje +1 sztukę.
-Wynik < 12 → brak rozmnażania.
+== Dice Roll and Breeding
+The player rolls two animal dice. For each non-predator species rolled, the rolled symbols are added to the current herd count for that species, and each full pair grants +1 animal.
 
-==  Wymiana rynkowa
-Kursy: 6 królików → 1 owca; 2 owce → 1 świnia; 3 świnie → 1 krowa; 2 krowy → 1 koń.
-Wymiana natychmiastowa, atomowa, bez limitu na turę. Działa również w drugą stronę.
+== Market Exchange
+Exchange rates: 6 rabbits → 1 sheep; 2 sheep → 1 pig; 3 pigs → 1 cow; 2 cows → 1 horse.
+The exchange is immediate, atomic, and unlimited per turn. The current engine supports the listed exchanges only from lower-tier animals to higher-tier animals.
 
-==  Drapieżniki i psy
-- *Lis* (1/12 na kości): zabiera wszystkie króliki, chyba że gracz ma **małego psa**.
-- *Wilk* (1/12): zabiera wszystkie zwierzęta z wyjątkiem koni i **dużego psa**.
-Oba efekty rozpatrywane są po rzucie, przed rozmnażaniem.
+== Predators and Dogs
+- *Fox* (1/12 on the die): takes all rabbits unless the player has a **small dog**.
+- *Wolf* (1/12): if the player has a **big dog**, the dog blocks the attack and is removed; otherwise the wolf takes all rabbits, sheep, pigs, and cows while horses remain.
+Both effects are resolved after the roll and before breeding.
 
-==  [Nazwa nowej mechaniki]
-[Tutaj wstaw opis: cel, warunki uruchomienia, efekt.]

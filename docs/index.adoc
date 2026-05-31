@@ -1,4 +1,4 @@
-= Digitalizacja gry planszowej "Farmer"
+= Digitalization of the "Farmer" Board Game
 Jan Kowalski <kontakt@example.com>
 :doctype: book
 :toc: left
@@ -18,71 +18,78 @@ endif::[]
 
 [%header]
 =====
-Oficjalna dokumentacja projektu — cyfryzacja gry "Farmer"
+Official project documentation for the digital version of "Farmer"
 =====
 
-= Wprowadzenie
+== Quick Links
 
-W tej sekcji opisano cele projektu oraz zarys podejścia do cyfryzacji gry planszowej "Farmer".
+- link:https://mina-project-team.github.io/Agile-Ranch/[Documentation]
+- link:https://github.com/orgs/Mina-Project-Team/projects/1[Kanban Board]
+- link:https://teams.microsoft.com/l/channel/19%3AKWHQbyCpT27fM8s_ej_Z-5twt7G8luly-cAw2KVX2Ho1%40thread.tacv2/General?groupId=6e093c46-85f3-4e14-90df-da83fa87486a&tenantId=80b1033f-21e0-4a82-bbc0-f05fdccd3bc8[Microsoft Teams]
 
-== Cel projektu
+== Project Overview
 
-Digitalizacja gry "Farmer" — celem jest przeniesienie kluczowych mechanik gry do formy cyfrowej, zapewnienie stabilnego środowiska deweloperskiego oraz produkcyjnej jakości dokumentacji w formacie AsciiDoc.
+This documentation describes the goals, scope, and implementation approach for the digital version of the "Farmer" board game.
 
-== Zakres
+=== Project Goal
 
-- Zaimplementowanie logiki gry (rzuty kośćmi, rozwój stada, drapieżniki, wymiana).
-- Przygotowanie infrastruktury: repozytorium, CI/CD, hosting dokumentacji.
-- Przygotowanie zasobów (grafiki, ikony) w oddzielnym module/repo submodule.
+The goal of the project is to move the core "Farmer" mechanics into a digital environment, provide a stable development setup, and maintain production-grade AsciiDoc documentation.
 
-== Odbiorcy dokumentacji
+=== Scope
 
-- Zespół deweloperski
-- Analitycy i designerzy gry
-- Technical writers i DevOps
+- Implementing the game logic (dice rolls, herd growth, predators, trading).
+- Preparing the project infrastructure: repository, CI/CD, and documentation hosting.
+- Keeping visual assets in a separate module or repository submodule.
+
+=== Documentation Audience
+
+- Developers
+- Analysts and game designers
+- Technical writers and DevOps contributors
 
 
-= Architektura i technologia
+== Architecture and Technology
 
-Poniżej przedstawiono proponowaną architekturę systemu i kluczowe decyzje technologiczne.
+This section summarizes the target architecture and the main technology choices.
 
-== Przegląd
+=== Overview
 
-System ma być modułowy i łatwy do testowania. Zalecana warstwa aplikacji:
+The system should be modular and easy to test. The recommended application layers are:
 
-- Frontend: responsywna aplikacja (Web) wykorzystująca framework SPA (np. React / Vue).
-- Backend: lekki serwis REST/GraphQL odpowiedzialny za logikę gry i persistent storage.
-- Baza danych: lekka baza relacyjna lub NoSQL w zależności od wymagań skalowalności.
-- CI/CD: GitHub Actions — build, test, generowanie dokumentacji i publikacja na GitHub Pages.
+- Frontend: a responsive web application built with an SPA framework.
+- Backend: a lightweight REST/GraphQL service responsible for game logic and persistence.
+- Database: a relational or NoSQL store depending on scalability needs.
+- CI/CD: GitHub Actions for build, tests, documentation generation, and GitHub Pages publishing.
 
-== Aspekty implementacyjne
+=== Implementation Notes
 
-- Logika gry powinna być oddzielona jako biblioteka (np. `game-engine`) tak, aby można było jej użyć w backendzie i testach.
-- Interfejsy API muszą być wersjonowane.
-- Zasoby graficzne i assety — wydzielone jako submodule Git, aby umożliwić niezależne zarządzanie.
+- The game logic should be isolated as a reusable library such as `game-engine`.
+- API contracts should be versioned.
+- Visual assets should live in a separate Git submodule to allow independent maintenance.
 
-== Wymagania niefunkcjonalne
+=== Non-functional Requirements
 
-- Automatyczne testy jednostkowe i integracyjne.
-- Dokumentacja generowana z AsciiDoc i hostowana automatycznie.
-- Monitorowanie i alerty integrujące się z MS Teams.
+- Automated unit and integration tests.
+- Documentation generated from AsciiDoc and deployed automatically.
+- Monitoring and alerts integrated with Microsoft Teams.
 
-== Mechanika gry
+== Game Mechanics
 include::mechanics.adoc[]
 
-== Wymagania funkcjonalne i niefunkcjonalne
+== Functional and Non-functional Requirements
 include::requirements.adoc[]
 
-== Implementacja techniczna
+== Technical Setup
 include::technical.adoc[]
 
-== Słownik terminów
+== Contributing and Governance
+include::contributing.adoc[]
+
+== Glossary
 include::glossary.adoc[]
 
-== Załączniki
-* Zasoby graficzne i moduły (git submodule)
-* Przykładowe testy jednostkowe i integracyjne
-
---
-Dokument wygenerowany automatycznie. Kontakt: Jan Kowalski
+== Appendices
+* Graphics assets and modules (Git submodule)
+* Sample unit and integration tests
+* Project links: link:https://mina-project-team.github.io/Agile-Ranch/[GitHub Pages] | link:https://github.com/orgs/Mina-Project-Team/projects/1[Kanban Board] | link:https://teams.microsoft.com/l/channel/19%3AKWHQbyCpT27fM8s_ej_Z-5twt7G8luly-cAw2KVX2Ho1%40thread.tacv2/General?groupId=6e093c46-85f3-4e14-90df-da83fa87486a&tenantId=80b1033f-21e0-4a82-bbc0-f05fdccd3bc8[Microsoft Teams]
 
