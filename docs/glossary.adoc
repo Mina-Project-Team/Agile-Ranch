@@ -1,6 +1,4 @@
-= Glossary
-
-== Terms
+=== Terms
 
 WIP:: Work In Progress - the number of concurrent tasks allowed in the workflow.
 AC:: Acceptance Criteria - conditions that must be met for a story or task to be considered complete.

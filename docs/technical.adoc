@@ -1,11 +1,9 @@
-= Development Environment - Setup and Run
-
-== Prerequisites
+=== Prerequisites
 
 - Git 2.30+
 - Python 3.10+
 
-== Quick Start (Developer)
+=== Quick Start (Developer)
 
 .Clone the repository
 ----
@@ -18,7 +16,7 @@ cd Agile-Ranch
 python -m pytest tests
 ----
 
-== Directory Structure (selected)
+=== Directory Structure (selected)
 
 - `docs/` - AsciiDoc documentation
 - `src/` - Python game engine implementation

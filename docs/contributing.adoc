@@ -1,34 +1,32 @@
-= Development Policy and Contribution Guide
-
-== Branching Policy
+=== Branching Policy
 
 - Work is organized on short-lived branches created from `main`.
 - Each branch should focus on a single issue, feature, or documentation change.
 - Branch names should be descriptive and concise, for example: `feature/dice-engine`, `docs/index-refresh`, or `fix/ci-pages`.
 - Merge only after Code Review and CI checks pass.
 
-== Naming Conventions
+=== Naming Conventions
 
 - Issues should follow the existing GitHub template and clearly state the goal.
 - User Stories should use the format: `As a [role] I want [action] so that [goal]`.
 - File names should remain descriptive and consistent with the repository structure.
 - AsciiDoc headings should reflect document hierarchy and remain stable across includes.
 
-== Code Review Rules
+=== Code Review Rules
 
 - Every change must be reviewed before merging.
 - Reviewers should check acceptance criteria, documentation updates, and test results.
 - Pull Requests should reference the related Issue or Project card.
 - WIP limits should be respected while the change is in progress.
 
-== Definition of Done
+=== Definition of Done
 
 - Acceptance criteria are met.
 - Relevant documentation is updated.
 - Tests pass, if they apply to the change.
 - The branch is merged into `main` only after review and verification.
 
-== Notes on Communication
+=== Notes on Communication
 
 - Project coordination happens in GitHub Projects and Microsoft Teams.
 - Technical announcements and automation alerts should be routed through the dedicated Teams channel configured for the project.
