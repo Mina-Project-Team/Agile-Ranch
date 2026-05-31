@@ -2,8 +2,7 @@
 = Game Mechanics (Summary)
 
 == Dice Roll and Breeding
-The player rolls 2d12. A total of 12 or more grants +1 animal for each full pair of the same species.
-If the result is below 12, no breeding occurs.
+The player rolls two animal dice. For each non-predator species rolled, the rolled symbols are added to the current herd count for that species, and each full pair grants +1 animal.
 
 == Market Exchange
 Exchange rates: 6 rabbits → 1 sheep; 2 sheep → 1 pig; 3 pigs → 1 cow; 2 cows → 1 horse.
