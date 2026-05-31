@@ -23,6 +23,5 @@ npm run dev
 == Directory Structure (selected)
 
 - `docs/` - AsciiDoc documentation
-- `game-engine/` - game logic library
-- `frontend/` - client application
-- `backend/` - API services
+- `src/` - Python game engine implementation
+- `tests/` - pytest-based unit tests
