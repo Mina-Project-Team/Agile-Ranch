@@ -13,5 +13,3 @@ The exchange is immediate, atomic, and unlimited per turn. The current engine su
 - *Wolf* (1/12): takes all animals except horses and the **big dog**.
 Both effects are resolved after the roll and before breeding.
 
-== [New Mechanic Name]
-[Insert description here: purpose, trigger condition, and effect.]
