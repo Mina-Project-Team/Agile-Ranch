@@ -1,213 +1,214 @@
-[[wymagania]]
-= Wymagania i historyjki użytkownika
-= Template kopiujecie, i według niego wypełniacie. Są przykłady teraz:
+[[requirements]]
+= Requirements and User Stories
 
-== Epik: Mechanika rzutów i rozwój stada
+Use this template as the base and fill it in accordingly. Examples are provided below:
+
+== Epic: Dice Mechanics and Herd Growth
 
 [cols="1,2,2,2", options="header"]
 |===
-|ID |User Story |Kryteria akceptacji |Status
+|ID |User Story |Acceptance Criteria |Status
 
 |US-01
-|Jako *gracz* chcę *rzucić dwiema 12-ściennymi kostkami ze zwierzętami*, aby *rozpocząć swoją turę i poznać wynik losowania*.
+|As a *player* I want to *roll two 12-sided animal dice* so that I can *start my turn and see the roll result*.
 a|
-* System losuje wynik dla dwóch niezależnych 12-ściennych kostek.
-* Każda kostka zwraca symbol zwierzęcia albo drapieżnika zgodnie z konfiguracją gry.
-* Wynik obu kostek jest widoczny dla gracza.
-* Wynik rzutu może zostać przekazany do mechaniki rozmnażania stada i obsługi drapieżników.
+* The system rolls two independent 12-sided dice.
+* Each die returns an animal or predator symbol according to the game configuration.
+* The result of both dice is visible to the player.
+* The roll result can be passed to herd breeding and predator handling mechanics.
 |Backlog
 
 |US-02
-|Jako *gracz* chcę *otrzymywać nowo narodzone zwierzęta na podstawie wyniku rzutu i aktualnego stada*, aby *widzieć wzrost liczby posiadanych zwierząt*.
+|As a *player* I want to *receive newly born animals based on the roll result and the current herd* so that I can *see my herd grow*.
 a|
-* System sumuje zwierzęta danego gatunku wyrzucone na kostkach z liczbą zwierząt tego gatunku w stadzie gracza.
-* Za każdą pełną parę gracz otrzymuje jedno nowe zwierzę danego gatunku.
-* Zwierzęta są dodawane do stada tylko wtedy, gdy suma zwierząt z kostek i stada daje minimum jedną pełną parę.
-* Stan stada zostaje zaktualizowany po obliczeniu przyrostu.
-* Testy jednostkowe weryfikują algorytm przyrostu stada dla różnych stanów początkowych.
+* The system adds animals of the same species rolled on the dice to the player's current herd.
+* For each full pair, the player receives one new animal of that species.
+* Animals are added only when the combined total from dice and herd forms at least one full pair.
+* The herd state is updated after the growth calculation.
+* Unit tests verify the herd growth algorithm for different initial states.
 |Backlog
 
 |US-03
-|Jako *gracz* chcę *widzieć podsumowanie zmian w stadzie po rzucie*, aby *wiedzieć, które zwierzęta zostały dodane lub utracone*.
+|As a *player* I want to *see a summary of herd changes after the roll* so that I know *which animals were added or lost*.
 a|
-* Po turze system pokazuje listę zmian w stadzie.
-* Gracz widzi stan stada przed i po rozpatrzeniu rzutu.
-* Jeżeli nie nastąpiła żadna zmiana, system pokazuje odpowiedni komunikat.
+* After the turn, the system shows a list of herd changes.
+* The player can see the herd state before and after the roll is resolved.
+* If no changes occurred, the system shows an appropriate message.
 |Backlog
 
 |US-04
-|Jako **system** chcę *losować wyniki* z dwóch 12-ściennych kostek o różnych rozkładach zwierząt, aby *zapewnić losowość*.
+|As a **system** I want to *roll results* from two 12-sided dice with different animal distributions so that *randomness is preserved*.
 a|
-* Zdefiniowano dwa oddzielne zestawy ścianek dla Kostki 1 i Kostki 2
-* Funkcja rzutu zwraca wylosowane zwierzęta z obu kostek niezależnie
-* Logika uwzględnia sytuacje, w których na ściankach znajdują się drapieżniki (lis/wilk)
+* Two separate face sets are defined for Die 1 and Die 2.
+* The roll function returns the animals from both dice independently.
+* The logic handles cases where predator symbols (fox/wolf) appear on the faces.
 | Backlog
 
 |US-05
-|Jako *gracz* chcę *mieć zapis aktualnego stanu mojego stada*, aby *system mógł poprawnie obliczać kolejne tury*.
+|As a *player* I want to *have a saved record of my current herd state* so that the *system can calculate future turns correctly*.
 a|
-* System przechowuje liczbę królików, owiec, świń, krów, koni oraz psów.
-* Stan stada jest aktualizowany po rzucie, wymianie i ataku drapieżnika.
-* System nie dopuszcza ujemnej liczby zwierząt.
+* The system stores the number of rabbits, sheep, pigs, cows, horses, and dogs.
+* The herd state is updated after rolls, trades, and predator attacks.
+* The system never allows a negative animal count.
 |Backlog
 |===
 
-== Epik: Wymiana rynkowa
+== Epic: Market Exchange
 
 [cols="1,3,4,1", options="header"]
 |===
-|ID |User Story |Kryteria akceptacji |Status
+|ID |User Story |Acceptance Criteria |Status
 
 |US-06
-|Jako *gracz* chcę *wymieniać zwierzęta według stałego cennika*, aby *móc strategicznie rozwijać gospodarstwo*.
+|As a *player* I want to *trade animals according to a fixed price list* so that I can *strategically grow the farm*.
 a|
-* System obsługuje kurs: 6 królików = 1 owca.
-* System obsługuje kurs: 2 owce = 1 świnia.
-* System obsługuje kurs: 3 świnie = 1 krowa.
-* System obsługuje kurs: 2 krowy = 1 koń.
+* The system supports the rate: 6 rabbits = 1 sheep.
+* The system supports the rate: 2 sheep = 1 pig.
+* The system supports the rate: 3 pigs = 1 cow.
+* The system supports the rate: 2 cows = 1 horse.
 |Backlog
 
 |US-07
-|Jako *gracz* chcę *wymieniać zwierzęta w obie strony*, aby *móc elastycznie reagować na sytuację w grze*.
+|As a *player* I want to *trade animals in both directions* so that I can *react flexibly to the game state*.
 a|
-* System pozwala wymienić zwierzęta z niższego poziomu na wyższy.
-* System pozwala wymienić zwierzęta z wyższego poziomu na niższy.
-* Po wymianie stan stada jest poprawnie przeliczony.
+* The system allows trading animals from a lower tier to a higher tier.
+* The system allows trading animals from a higher tier to a lower tier.
+* After the trade, the herd state is recalculated correctly.
 |Backlog
 
 |US-08
-|Jako *system* chcę *sprawdzać, czy gracz ma wystarczającą liczbę zwierząt do wymiany*, aby *nie dopuścić do niepoprawnego stanu gry*.
+|As a *system* I want to *check whether the player has enough animals for a trade* so that I can *prevent invalid game states*.
 a|
-* Wymiana jest blokowana, jeżeli gracz nie ma wymaganej liczby zwierząt.
-* System pokazuje komunikat o braku wystarczających zasobów.
-* Nieudana wymiana nie zmienia stanu stada.
+* The trade is blocked if the player does not have the required number of animals.
+* The system shows a message about insufficient resources.
+* A failed trade does not change the herd state.
 |Backlog
 
 |US-09
-|Jako *gracz* chcę *zobaczyć podgląd wymiany przed jej zatwierdzeniem*, aby *uniknąć przypadkowej decyzji*.
+|As a *player* I want to *preview a trade before confirming it* so that I can *avoid accidental decisions*.
 a|
-* System pokazuje, jakie zwierzęta zostaną zabrane.
-* System pokazuje, jakie zwierzęta zostaną dodane.
-* Gracz może zatwierdzić albo anulować wymianę.
+* The system shows which animals will be removed.
+* The system shows which animals will be added.
+* The player can confirm or cancel the trade.
 |Backlog
 
 |US-10
-|Jako *system* chcę *wykonywać wymianę atomowo*, aby *nie powstał częściowo zaktualizowany stan stada*.
+|As a *system* I want to *execute the trade atomically* so that *no partially updated herd state is created*.
 a|
-* Wymiana kończy się pełnym sukcesem albo pełnym anulowaniem.
-* W przypadku błędu stan stada pozostaje bez zmian.
-* Testy sprawdzają poprawną i niepoprawną wymianę.
+* The trade ends with either full success or full rollback.
+* In case of an error, the herd state remains unchanged.
+* Tests cover both valid and invalid trade scenarios.
 |Backlog
 |===
 
-== Epik: Drapieżniki i obrona
+== Epic: Predators and Defense
 
 [cols="1,3,4,1", options="header"]
 |===
-|ID |User Story |Kryteria akceptacji |Status
+|ID |User Story |Acceptance Criteria |Status
 
 |US-11
-|Jako *gracz* chcę *żeby lis atakował moje króliki*, aby *gra zawierała element ryzyka*.
+|As a *player* I want the *fox to attack my rabbits* so that the game contains *an element of risk*.
 a|
-* Jeżeli wypadnie lis, system rozpatruje atak na króliki.
-* Jeżeli gracz nie posiada odpowiedniej obrony, traci króliki zgodnie z zasadami gry.
-* Po ataku system aktualizuje stan stada.
+* If the fox appears, the system resolves an attack on rabbits.
+* If the player has no appropriate defense, rabbits are lost according to the game rules.
+* After the attack, the system updates the herd state.
 |Backlog
 
 |US-12
-|Jako *gracz* chcę *używać małego psa do obrony przed lisem*, aby *chronić króliki przed stratą*.
+|As a *player* I want to *use a small dog to defend against the fox* so that I can *protect my rabbits from being lost*.
 a|
-* Jeżeli gracz ma małego psa i wypadnie lis, króliki nie zostają utracone.
-* Po obronie mały pies zostaje usunięty ze stada.
-* System pokazuje komunikat o użyciu małego psa.
+* If the player has a small dog and the fox appears, rabbits are not lost.
+* After the defense, the small dog is removed from the herd.
+* The system shows a message about the small dog being used.
 |Backlog
 
 |US-13
-|Jako *gracz* chcę *żeby wilk atakował moje stado*, aby *większe zwierzęta również były narażone na ryzyko*.
+|As a *player* I want the *wolf to attack my herd* so that *larger animals are also exposed to risk*.
 a|
-* Jeżeli wypadnie wilk, system rozpatruje atak na stado.
-* Koń nie zostaje utracony podczas ataku wilka.
-* Pozostałe zwierzęta są usuwane zgodnie z przyjętymi zasadami projektu.
+* If the wolf appears, the system resolves an attack on the herd.
+* The horse is not lost during a wolf attack.
+* The remaining animals are removed according to the project rules.
 |Backlog
 
 |US-14
-|Jako *gracz* chcę *użyć dużego psa do obrony przed wilkiem*, aby *nie stracić zwierząt podczas ataku drapieżnika*.
+|As a *player* I want to *use a big dog to defend against the wolf* so that I *do not lose animals during the predator attack*.
 a|
-* System wykrywa atak wilka po rzucie kośćmi.
-* Jeżeli gracz posiada dużego psa, atak wilka zostaje zablokowany.
-* Po obronie duży pies zostaje usunięty ze stada.
-* Jeżeli gracz nie posiada dużego psa, system rozpatruje atak wilka zgodnie z zasadami gry.
+* The system detects the wolf attack after the dice roll.
+* If the player has a big dog, the wolf attack is blocked.
+* After the defense, the big dog is removed from the herd.
+* If the player does not have a big dog, the system resolves the wolf attack according to the game rules.
 |Backlog
 
 |US-15
-|Jako *system* chcę *rozpatrywać sytuację, gdy w jednej turze pojawi się więcej niż jeden efekt specjalny*, aby *uniknąć niejednoznaczności zasad*.
+|As a *system* I want to *resolve cases where more than one special effect appears in a single turn* so that I can *avoid rule ambiguity*.
 a|
-* System posiada zdefiniowaną kolejność rozpatrywania efektów.
-* Atak lisa i wilka może zostać obsłużony w jednej turze.
-* Wynik końcowy stada jest jednoznaczny i możliwy do przetestowania.
+* The system has a defined order of effect resolution.
+* Fox and wolf attacks can be handled in the same turn.
+* The final herd outcome is deterministic and testable.
 |Backlog
 |===
 
 
-== Epik: Warunki zwycięstwa i przebieg rozgrywki
+== Epic: Victory Conditions and Game Flow
 
 [cols="1,3,4,1", options="header"]
 |===
-|ID |User Story |Kryteria akceptacji |Status
+|ID |User Story |Acceptance Criteria |Status
 
 |US-16
-|Jako *gracz* chcę *rozpocząć nową grę z pustym lub domyślnym stadem*, aby *móc zacząć rozgrywkę od ustalonego stanu początkowego*.
+|As a *player* I want to *start a new game with an empty or default herd* so that I can *begin from a defined starting state*.
 a|
-* System tworzy nową rozgrywkę.
-* Każdy gracz otrzymuje początkowy stan stada zgodny z konfiguracją gry.
-* Stan początkowy jest widoczny dla gracza.
+* The system creates a new game session.
+* Each player receives an initial herd state according to the game configuration.
+* The initial state is visible to the player.
 |Backlog
 
 |US-17
-|Jako *gracz* chcę *wykonywać swoją turę w określonej kolejności*, aby *rozgrywka była zrozumiała i zgodna z zasadami*.
+|As a *player* I want to *take my turn in a defined order* so that the game remains *clear and rule-compliant*.
 a|
-* Tura składa się z rzutu kośćmi.
-* Następnie system rozpatruje drapieżniki.
-* Następnie system rozpatruje rozmnażanie.
-* Gracz może wykonać wymianę zgodnie z zasadami projektu.
+* A turn starts with the dice roll.
+* The system then resolves predators.
+* The system then resolves breeding.
+* The player may trade according to the project rules.
 |Backlog
 
 |US-18
-|Jako *gracz* chcę *zostać poinformowany o spełnieniu warunku zwycięstwa*, aby *wiedzieć, kiedy gra się kończy*.
+|As a *player* I want to *be informed when the victory condition is met* so that I know *when the game ends*.
 a|
-* System sprawdza stan stada po każdej turze.
-* System wykrywa, czy gracz posiada wymagany zestaw zwierząt.
-* Po spełnieniu warunku zwycięstwa system pokazuje komunikat końcowy.
+* The system checks the herd state after each turn.
+* The system detects whether the player has the required set of animals.
+* When the victory condition is met, the system shows a final message.
 |Backlog
 
 |US-19
-|Jako *gracz* chcę *widzieć historię ostatnich akcji*, aby *móc prześledzić przebieg rozgrywki*.
+|As a *player* I want to *see the history of recent actions* so that I can *review the course of the game*.
 a|
-* System zapisuje ostatni rzut kośćmi.
-* System zapisuje wykonane wymiany.
-* System zapisuje ataki drapieżników i użycie psów.
+* The system records the latest dice roll.
+* The system records completed trades.
+* The system records predator attacks and dog usage.
 |Backlog
 |===
 
 ////
-SZABLON USER STORY – skopiuj i wypełnij, wstawiając w odpowiednie miejsce powyższej tabeli.
+USER STORY TEMPLATE - copy and fill it in, then place it in the appropriate part of the table above.
 ////
 
-.Kopiowalny wiersz dla nowej User Story
+.Reusable row for a new User Story
 [cols="1,2,2,2", options="header"]
 |===
-|ID |User Story |Kryteria akceptacji |Status
+|ID |User Story |Acceptance Criteria |Status
 |US-XX
-|Jako **[rola]** chcę **[akcja]**, aby **[cel biznesowy]**.
+|As a **[role]** I want to **[action]** so that **[business goal]**.
 |
-* [Kryterium 1]
-* [Kryterium 2]
-* [Kryterium 3]
+* [Criterion 1]
+* [Criterion 2]
+* [Criterion 3]
 | Backlog
 |===
 
-.Definition of Done (DoD) – uniwersalne
-* Kryteria akceptacji spełnione
-* Dokumentacja (.adoc) zaktualizowana
-* Testy (jeśli dotyczy) przechodzą
-* Wdrożone na `main` i zweryfikowane przez Flow Mastera
+.Definition of Done (DoD) - universal
+* Acceptance criteria are met
+* The documentation (.adoc) is updated
+* Tests pass, if applicable
+* Changes are deployed to `main` and verified by the Flow Master
