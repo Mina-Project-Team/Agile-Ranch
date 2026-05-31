@@ -14,10 +14,10 @@ git clone https://github.com/Mina-Project-Team/Agile-Ranch.git
 cd Agile-Ranch
 ----
 
-.Start the local environment (Node example)
+.Run the test suite
 ----
-npm install
-npm run dev
+python -m pytest tests
+----
 ----
 
 == Directory Structure (selected)
